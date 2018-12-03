@@ -8,7 +8,7 @@
   <h1>DevTuga Notícias 🇵🇹👨🏻‍💻</h1>
   <strong>Um plataforma para hackers que gostam de bitoque.</strong>
 </div>
-
+<hr>
 <p align="center">
   <a href="https://www.python.org/">
     <img src="https://img.shields.io/badge/python-3.7.1-blue.svg" alt="python version"/>
