@@ -16,8 +16,9 @@
   <a href="https://github.com/ambv/black">
     <img src="https://img.shields.io/badge/code%20style-black-black.svg" alt="code formatter"/>
   </a>
-  
-    <img src="https://img.shields.io/badge/license-MIT-purple.svg" />
+  <a href="">
+    <img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License"/>
+   </a>
     <a href="http://flask.pocoo.org/">
     <img src="http://flask.pocoo.org/static/badges/flask-project-s.png" alt="Flask"/>
   </a>
