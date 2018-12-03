@@ -1,11 +1,61 @@
-<!doctype html>
-<html lang="en">
-    <head>
+<html>
+<head>
+      
+                {{moment.include_jquery()}}
+                {{moment.include_moment()}}
+                {{moment.lang("pt")}}
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}">
+                <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+                <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400" rel="stylesheet" />
+                <meta charset="UTF-8" />
+                {% if title %}
+                  <title>Devtuga: {{ title }}</title>
+                {% else %}
+                  <title>DevTuga</title>
+                {% endif %}
+             
+</head>
 
-    </head>
-    <body>
-        
-<p>lorem</p>
-<a href="{{ url_for('main.index')}}">Home</a>
-    </body>
-</html>
+<body bgcolor=#ffffff>
+<center>
+<br><br>
+<table width=500 cellpadding=0>
+<tr><td bgcolor=#ffffff>
+<br><br>
+<b>Bem vindo ao DevTuga</b>
+<br><br>
+<b>O que é isto?</b>
+
+<p>Hackernews versão portugal. Porque queremos que a comunidade dev portuguesa saia da toca.</p>
+
+<p>Um site para submeter noticias que possam interessar a devs/hackers tugas. Ou seja, qualquer pessoa que se interesse por tecnologia um bocado mais do que o normal.</p> 
+
+<p>Este site é totalmente open-source. Podes <a href="https://github.com/duarteocarmo/devtuga-news">visitar o repositorio</a>. Por favor submete issues! Estamos sempre a procura de malta para colaborar.</p>
+
+
+<b>O que devo submeter?</b>
+
+<p>Qualquer link ou pergunta que achas que possa interessar a malta! Noticias sobre tecnologia, programação, novos produtos, startups interessantes.</p>
+
+<p>Podes também publicar coisas mais misc como por exemplo noticias sobre politica, economia, mundo. (sim. até futebol)</p>
+
+<b>Conduta</b>
+
+<p>Não aceitamos: spam, insultos, clickbait. Qualquer tentativa de um destes, resultará em ban permanente da tua conta.</p>
+
+<p>Have fun :)</p>
+
+<a href="{{ url_for('main.index') }}">-> Voltar <-</a>
+
+<br>
+<table width=100% bgcolor=#D12626 cellpadding=0><tr><td></td></tr></table>
+<p align=center>
+<span class=foot>
+
+
+<br><br>
+</span>
+</td></tr></table>
+</center>
+</body>

@@ -4,12 +4,12 @@
 <table border="0">
     <tr class='athing'>
         <td valign="top">utilizador:</td>
-        <td timestamp="1326108687"><a href="" class="hnuser">{{ user.username }}</a></td>
+        <td>{{ user.username }}</td>
     </tr>
     {% if user.timestamp %}
         <tr>
             <td valign="top">criado:</td>
-            <td><a href="">{{ moment(user.timestamp).format('LL') }}</a></td>
+            <td>{{ moment(user.timestamp).format('LL') }}</td>
         </tr>
     {% endif %}
     {% if user.karma %}
