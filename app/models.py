@@ -88,8 +88,8 @@ def load_user(id):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80))
-    url = db.Column(db.Text())
-    url_base = db.Column(db.Text())
+    url = db.Column(db.String(120))
+    url_base = db.Column(db.String(50))
     text = db.Column(db.String(280))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
@@ -153,7 +153,7 @@ class Comment(db.Model):
     text = db.Column(db.String(140))
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow())
-    path = db.Column(db.Text, index=True)
+    path = db.Column(db.String(60), index=True)
     parent_id = db.Column(db.Integer, db.ForeignKey("comment.id"))
     replies = db.relationship(
         "Comment",

@@ -10,7 +10,6 @@ import logging
 from flaskext.markdown import Markdown
 from flask_mail import Mail
 
-
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
