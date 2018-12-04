@@ -1,7 +1,58 @@
 {% extends "base.html" %} 
 {% block content %} 
 <table class="fatitem" border="0">
-{% include '_post.html' %}
+<tr>
+  <tr class="athing" id="">
+    <td align="right" valign="top" class="title" style="padding-right:4px;">
+      {% if count %}
+      <span class="rank">{{ count[0] }}</span>
+      {% endif %}
+    </td>
+    <td valign="top" class="votelinks">
+      <center>
+        <a id="" onclick="" href="{{ url_for('main.upvote', post_id=post.id)}}">
+          <div class="votearrow" title="votar"></div>
+        </a>
+      </center>
+    </td>
+    <td align="left" valign="top" class="title" style="padding-left:4px;padding-right:4px;">
+      <span class="rank">{{ post.score }}</span>
+    </td>
+    <td class="title">
+      {% if post.url %}
+      <a target="_blank" href="{{ post.url }}" class="storylink">{{ post.title }}</a>
+      <span class="sitebit comhead">
+        
+          <a href="{{ url_for('main.posts_from_source', url_base=post.url_base) }}"><span class="sitestr">(via {{ post.url_base }})</span></a>
+        
+      </span>
+      {% else %}
+      <a target="" href="{{ url_for('main.post_page', post_id=post.id)}}" class="storylink">{{ post.title }}</a>
+      {% endif %}
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"></td>
+    <td class="subtext">por
+      <a href="{{ url_for('main.user', username=post.author.username) }}" class="hnuser">{{post.author.username}}</a>
+      <span class="age">{{ moment(post.timestamp).fromNow() }}</span> - 
+      <a href="{{ url_for('main.post_page', post_id=post.id)}}">{{ post.total_comments() }} comentários</a>
+      {%if current_user == post.author %}
+        - <a href="{{ url_for('main.delete_post', post_id=post.id)}}"> apagar</a>
+      {% endif %}
+    </td>
+  </tr>
+
+  {% if post.text %}
+  <tr>
+    <td colspan="3"></td>
+    <td>{% filter markdown %}{{ post.text }}{% endfilter %}</td>
+  </tr>
+  {% endif %}
+
+  <tr class="spacer" style="height:5px"></tr>
+</tr>
+
 <tr style="height:10px"></tr>
 <tr>
   <td colspan="3"></td>
