@@ -1,8 +1,8 @@
 """first migration
 
-Revision ID: 2af108237864
+Revision ID: 11f79a9e381b
 Revises: 
-Create Date: 2018-12-04 13:49:03.860586
+Create Date: 2018-12-05 12:29:14.371106
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2af108237864'
+revision = '11f79a9e381b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -48,7 +48,7 @@ def upgrade():
     op.create_index(op.f('ix_post_timestamp'), 'post', ['timestamp'], unique=False)
     op.create_table('comment',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('text', sa.String(length=140), nullable=True),
+    sa.Column('text', sa.String(length=300), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('timestamp', sa.DateTime(), nullable=True),
     sa.Column('path', sa.String(length=60), nullable=True),

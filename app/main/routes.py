@@ -15,10 +15,6 @@ from app.main.forms import CommentForm, EditProfileForm, PostForm
 from app.models import Comment, Post, User, Vote, Comment_Vote
 from app.main import bp
 
-# TODO create new repo
-# TODO bottom links
-# TODO report content
-
 
 def redirect_url(default="main.index"):
     return request.args.get("next") or request.referrer or url_for(default)

@@ -150,7 +150,7 @@ class Comment(db.Model):
     _N = 6
 
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(140))
+    text = db.Column(db.String(300))
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow())
     path = db.Column(db.String(60), index=True)
