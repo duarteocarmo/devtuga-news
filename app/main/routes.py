@@ -150,6 +150,7 @@ def submit():
                 url=form.url.data,
                 text=form.text.data,
                 author=current_user,
+                timestamp=datetime.utcnow()
             )
             post.format_post(form.url.data)
             db.session.add(post)
