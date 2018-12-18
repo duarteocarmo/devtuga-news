@@ -9,6 +9,15 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='devtuga.ico') }}" />
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400" rel="stylesheet" />
   <meta charset="UTF-8" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123414255-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-123414255-3');
+  </script>
   {% if title %}
     <title>Devtuga: {{ title }}</title>
   {% else %}
