@@ -28,7 +28,6 @@ def update_renderings():
 
 
 @bp.route("/", methods=["GET"])
-@bp.route("/index", methods=["GET"])
 def index():
     update_renderings()
 

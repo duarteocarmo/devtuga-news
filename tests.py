@@ -147,9 +147,7 @@ class MainRoutesTests(unittest.TestCase):
     def test_home_view(self):
         client = self.app.test_client()
         response = client.get("/")
-        response_2 = client.get("/index")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response_2.status_code, 200)
 
     def test_newest_view(self):
         client = self.app.test_client()
