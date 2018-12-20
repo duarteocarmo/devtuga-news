@@ -5,6 +5,7 @@ RUN adduser -D devtuga
 WORKDIR /home/devtuga
 
 RUN apk add -U --no-cache gcc build-base linux-headers ca-certificates libffi-dev libressl-dev
+RUN apt-get -y install ssmtp
 
 COPY requirements.txt requirements.txt 
 RUN python -m venv venv 
