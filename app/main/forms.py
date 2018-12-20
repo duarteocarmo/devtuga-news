@@ -8,7 +8,7 @@ from wtforms.validators import (
     URL,
     Optional,
 )
-from app.models import User
+from app.models import User, Post
 
 
 class EditProfileForm(FlaskForm):
@@ -52,6 +52,10 @@ class PostForm(FlaskForm):
     def validate_url(self, url):
         if len(self.text.data) > 0:
             raise ValidationError("Please choose text or link post.")
+
+        post = Post.query.filter_by(url=self.url.data).first()
+        if post is not None:
+            raise ValidationError("Este link já foi postado.")
 
 
 class CommentForm(FlaskForm):
