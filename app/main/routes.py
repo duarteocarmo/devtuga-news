@@ -229,7 +229,7 @@ def delete_post(post_id):
         db.session.commit()
         return redirect(redirect_url())
     else:
-        return render_template("404.html"), 404
+        return render_template("errors/404.html"), 404
 
 
 @bp.route("/delete/comment/<comment_id>", methods=["GET"])
@@ -241,7 +241,7 @@ def delete_comment(comment_id):
         db.session.commit()
         return redirect(redirect_url())
     else:
-        return render_template("404.html"), 404
+        return render_template("errors/404.html"), 404
 
 
 @bp.route("/submissions/<username>", methods=["GET"])
