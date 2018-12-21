@@ -75,6 +75,9 @@ class User(UserMixin, db.Model):
             return False
         else:
             return True
+    
+    def is_admin(self):
+        return self.email == current_app.config["MAIL_ADMIN_ADDRESS"]
 
     def __repr__(self):
         return f"<User {self.username}>"

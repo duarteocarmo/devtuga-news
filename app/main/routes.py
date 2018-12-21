@@ -224,7 +224,7 @@ def upvote(post_id):
 @login_required
 def delete_post(post_id):
     post = Post.query.filter_by(id=post_id).first_or_404()
-    if current_user == post.author:
+    if current_user == post.author or current_user.is_admin():
         post.delete_post()
         db.session.commit()
         return redirect(redirect_url())

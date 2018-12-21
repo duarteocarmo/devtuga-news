@@ -33,9 +33,16 @@
     <a href="{{ url_for('main.user', username=post.author.username) }}" class="hnuser">{{post.author.username}}</a>
     <span class="age">{{ moment(post.timestamp).fromNow() }}</span> - 
     <a href="{{ url_for('main.post_page', post_id=post.id)}}">{{ post.total_comments() }} comentários</a>
-    {%if current_user == post.author %}
-      - <a href="{{ url_for('main.delete_post', post_id=post.id)}}"> apagar</a>
+    {%if current_user.is_authenticated%}
+      {%if current_user == post.author %}
+        - <a href="{{ url_for('main.delete_post', post_id=post.id)}}"> apagar</a>
+      {%elif current_user.is_admin() %}
+        - <a href="{{ url_for('main.delete_post', post_id=post.id)}}"> apagar como admin </a>
+      {% endif %}
     {% endif %}
+
+    
+    
   </td>
 </tr>
 <tr class="spacer" style="height:5px"></tr>

@@ -1,12 +1,10 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 import unittest
 from app import create_app, db
 from app.models import User, Post, Comment
 from config import Config
-from flask import url_for
-from datetime import datetime
-from flask_login import login_user
-import os
+from flask import current_app
+from flask_login import login_user, logout_user, current_user, LoginManager
 
 
 class TestConfig(Config):
@@ -22,6 +20,8 @@ class UserModelCase(unittest.TestCase):
         self.app_context = self.app.app_context()
         self.app_context.push()
         db.create_all()
+        lm = LoginManager()
+        lm.init_app(self.app)
 
     def tearDown(self):
         db.session.remove()
@@ -33,6 +33,24 @@ class UserModelCase(unittest.TestCase):
         u.set_password("cat")
         self.assertFalse(u.check_password("dog"))
         self.assertTrue(u.check_password("cat"))
+
+    def test_user_admin(self):
+        admin_email = current_app.config["MAIL_ADMIN_ADDRESS"]
+        admin_user = User(username="admin", email=admin_email)
+        self.assertTrue(admin_user.is_admin())
+
+    def test_user_login(self):
+        u = User(username="susan")
+        with self.app.test_request_context():
+            result = login_user(u)
+            self.assertTrue(result)
+
+    def test_user_logout(self):
+        u = User(username="susan")
+        with self.app.test_request_context():
+            login_user(u)
+            logout_user()
+            self.assertTrue(current_user.is_anonymous)
 
 
 class PostModelCase(unittest.TestCase):
