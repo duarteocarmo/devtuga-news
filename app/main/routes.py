@@ -147,19 +147,24 @@ def edit_profile():
 @login_required
 def edit_comment(comment_id):
     comment = Comment.query.filter_by(id=comment_id).first_or_404()
-    form = EditCommentForm(comment.text)
-    if form.validate_on_submit():
-        comment.text = form.text.data
-        db.session.commit()
-        return redirect(url_for("main.edit_comment", comment_id=comment_id))
-    elif request.method == "GET":
-        form.text.data = comment.text
-    return render_template(
-        "edit_comment.html",
-        title="editar comentario",
-        form=form,
-        comment=comment,
-    )
+    if comment.author == current_user:
+        form = EditCommentForm(comment.text)
+        if form.validate_on_submit():
+            comment.text = form.text.data
+            db.session.commit()
+            return redirect(
+                url_for("main.edit_comment", comment_id=comment_id)
+            )
+        elif request.method == "GET":
+            form.text.data = comment.text
+        return render_template(
+            "edit_comment.html",
+            title="editar comentario",
+            form=form,
+            comment=comment,
+        )
+    else:
+        return render_template("errors/404.html"), 404
 
 
 @bp.route("/submit", methods=["GET", "POST"])
