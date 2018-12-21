@@ -35,6 +35,15 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError("Please use a different email.")
 
 
+class EditCommentForm(FlaskForm):
+    text = TextAreaField("", validators=[DataRequired()])
+    submit = SubmitField("mudar")
+
+    def __init__(self, original_text, *args, **kwargs):
+        super(EditCommentForm, self).__init__(*args, **kwargs)
+        self.orginal_text = original_text
+
+
 class PostForm(FlaskForm):
     title = StringField(
         "titulo", validators=[DataRequired(), Length(min=1, max=80)]

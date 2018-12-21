@@ -11,7 +11,12 @@ from flask import (
 from flask_login import current_user, login_required
 
 from app import db
-from app.main.forms import CommentForm, EditProfileForm, PostForm
+from app.main.forms import (
+    CommentForm,
+    EditProfileForm,
+    PostForm,
+    EditCommentForm,
+)
 from app.models import Comment, Post, User, Vote, Comment_Vote
 from app.main import bp
 
@@ -135,6 +140,25 @@ def edit_profile():
         form.email.data = current_user.email
     return render_template(
         "edit_profile.html", title="editar perfil", form=form
+    )
+
+
+@bp.route("/edit_comment/<comment_id>", methods=["GET", "POST"])
+@login_required
+def edit_comment(comment_id):
+    comment = Comment.query.filter_by(id=comment_id).first_or_404()
+    form = EditCommentForm(comment.text)
+    if form.validate_on_submit():
+        comment.text = form.text.data
+        db.session.commit()
+        return redirect(url_for("main.edit_comment", comment_id=comment_id))
+    elif request.method == "GET":
+        form.text.data = comment.text
+    return render_template(
+        "edit_comment.html",
+        title="editar comentario",
+        form=form,
+        comment=comment,
     )
 
 

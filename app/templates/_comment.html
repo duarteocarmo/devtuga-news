@@ -17,6 +17,7 @@
                             <span class="age">{{ moment(comment.timestamp).fromNow() }}</span> 
                             {%if current_user == comment.author %}
                                 - <a href="{{url_for('main.delete_comment', comment_id=comment.id)}}">apagar </a>
+                                - <a href="{{url_for('main.edit_comment', comment_id=comment.id)}}">editar </a>
                                 - <a href="{{url_for('main.delete_comment', comment_id=comment.id)}}">pontos: {{ comment.score }} </a>
                             {% endif %}
                             <span href=""></span>

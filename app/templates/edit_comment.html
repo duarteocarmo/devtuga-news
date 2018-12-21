@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+{% block content %} 
+<table class="fatitem" border="0">
+{% include '_comment.html' %}
+<tr style="height:10px"></tr>
+<tr>
+  
+  <td>
+    <form action="" method="post">
+        {{ form.hidden_tag() }} </br>
+      {{ form.text(cols=50, rows=4) }}</br>
+      {% for error in form.text.errors %}
+      <span style="color: red;">[{{ error }}]</span> 
+      {% endfor %}
+      <br>
+      <br>
+      {{ form.submit() }}
+    </form>
+  </td>
+</tr>
+<tr>
+
+    <td>
+        <br>
+        <a href="{{url_for('main.post_page', post_id=comment.post_id)}}">Post Original</a>
+    </td>
+</tr>
+</table>
+{% endblock %}
