@@ -16,6 +16,7 @@ from app.main.forms import (
     EditProfileForm,
     PostForm,
     EditCommentForm,
+    EditPostForm,
 )
 from app.models import Comment, Post, User, Vote, Comment_Vote
 from app.main import bp
@@ -162,6 +163,25 @@ def edit_comment(comment_id):
             title="editar comentario",
             form=form,
             comment=comment,
+        )
+    else:
+        return render_template("errors/404.html"), 404
+
+
+@bp.route("/edit_post/<post_id>", methods=["GET", "POST"])
+@login_required
+def edit_post(post_id):
+    post = Post.query.filter_by(id=post_id).first_or_404()
+    if post.author == current_user and post.text:
+        form = EditPostForm(post.text)
+        if form.validate_on_submit():
+            post.text = form.text.data
+            db.session.commit()
+            return redirect(url_for("main.edit_post", post_id=post_id))
+        elif request.method == "GET":
+            form.text.data = post.text
+        return render_template(
+            "edit_post.html", title="editar post", form=form, post=post
         )
     else:
         return render_template("errors/404.html"), 404

@@ -38,9 +38,6 @@
       <span class="age">{{ moment(post.timestamp).fromNow() }}</span> - 
       <a href="{{ url_for('main.post_page', post_id=post.id)}}">{{ post.total_comments() }} comentários</a>
       {%if current_user == post.author %}
-        {% if post.text %}
-            - <a href="{{ url_for('main.edit_post', post_id=post.id)}}"> editar</a>
-        {% endif %}
         - <a href="{{ url_for('main.delete_post', post_id=post.id)}}"> apagar</a>
       {% endif %}
     </td>
@@ -72,12 +69,13 @@
     </form>
   </td>
 </tr>
-</table>
-<br>
-<table border="0" class='comment-tree'>
-{% for comment in comments %} 
-  {% include '_comment.html' %} 
-{% endfor %} 
+<tr>
+
+        <td>
+            <br>
+            <a href="{{url_for('main.post_page', post_id=post.id)}}">Post Original</a>
+        </td>
+    </tr>
 </table>
 {% endblock %}
 

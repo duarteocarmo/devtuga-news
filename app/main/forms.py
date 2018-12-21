@@ -67,6 +67,17 @@ class PostForm(FlaskForm):
             raise ValidationError("Este link já foi postado.")
 
 
+class EditPostForm(FlaskForm):
+    text = TextAreaField(
+        "", validators=[DataRequired(), Length(min=1, max=280)]
+    )
+    submit = SubmitField("mudar")
+
+    def __init__(self, original_text, *args, **kwargs):
+        super(EditPostForm, self).__init__(*args, **kwargs)
+        self.orginal_text = original_text
+
+
 class CommentForm(FlaskForm):
     text = TextAreaField(
         "Comment Text", validators=[DataRequired(), Length(min=1, max=300)]
