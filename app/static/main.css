@@ -1,5 +1,6 @@
 body  { font-family: 'Source Sans Pro', sans-serif; font-size:10pt; color:#828282; }
 td    { font-family: 'Source Sans Pro', sans-serif; font-size:11pt; color:#000000; }
+td img { vertical-align: top;}
 
 .admin td   { font-family: 'Source Sans Pro', sans-serif; font-size:8.5pt; color:#000000; }
 .subtext td { font-family: 'Source Sans Pro', sans-serif; font-size:  7pt; color:#828282; }
@@ -16,10 +17,11 @@ a:visited { color:#828282; text-decoration:none; }
 .title   { font-family: 'Source Sans Pro', sans-serif; font-size: 12pt; color:#000000; }
 .subtext { font-family: 'Source Sans Pro', sans-serif; font-size:  9pt; color:#828282; }
 .yclinks { font-family: 'Source Sans Pro', sans-serif; font-size:  10pt; color:#828282; }
-.pagetop { font-family: 'Source Sans Pro', sans-serif; font-size: 10pt; color:#ffffff; }
+.pagetop { font-family: 'Source Sans Pro', sans-serif; font-size: 12pt; color:#ffffff; }
 .comhead { font-family: 'Source Sans Pro', sans-serif; font-size:  10pt; color:#828282; }
 .comment { font-family: 'Source Sans Pro', sans-serif; font-size:  9pt; }
-.hnname  { margin-right: 5px;margin-left: 15px;}
+.hnname  { margin-right: 5px;margin-left: 15px;font-family: 'Source Sans Pro', sans-serif; font-size: 12pt; color:#ffffff;}
+
 
 
 .commtext a:link, .commtext a:visited { text-decoration: underline; }
