@@ -3,3 +3,5 @@ app.db
 .vscode
 logs
 .env
+env
+__pycache__/
