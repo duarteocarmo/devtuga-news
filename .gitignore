@@ -5,3 +5,6 @@ logs
 .env
 env
 __pycache__/
+devtuga-dump/backup.sql
+devtuga-dump/dockercommands.txt
+devtuga-dump/mysqlconsole.txt
