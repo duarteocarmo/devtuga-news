@@ -8,3 +8,4 @@ __pycache__/
 devtuga-dump/backup.sql
 devtuga-dump/dockercommands.txt
 devtuga-dump/mysqlconsole.txt
+devtuga-dump/update_devtuga.sh
