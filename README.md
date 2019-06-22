@@ -3,26 +3,11 @@
   <img
     alt="DEV"
     src="app/static/Banner.png"
-    width=200px
+    width=100px
   />
   <h1>DevTuga Notícias 🇵🇹👨🏻‍💻</h1>
   <strong>Um plataforma para hackers que gostam de bitoque.</strong>
 </div>
-
-<p align="center">
-  <a href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/python-3.7.1-blue.svg" alt="python version"/>
-  </a>
-  <a href="https://github.com/ambv/black">
-    <img src="https://img.shields.io/badge/code%20style-black-black.svg" alt="code formatter"/>
-  </a>
-  <a href="">
-    <img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License"/>
-   </a>
-    <a href="http://flask.pocoo.org/">
-    <img src="http://flask.pocoo.org/static/badges/flask-project-s.png" alt="Flask"/>
-  </a>
-</p>
 
 ### Índice:
 
