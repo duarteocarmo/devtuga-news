@@ -1,10 +1,10 @@
 <div align="center">
   <br>
-  <img
+  <a href="devtuga.duarteocarmo.com"><img
     alt="DEV"
     src="app/static/Banner.png"
     width=100px
-  />
+  /></a>
   <h1>DevTuga Notícias 🇵🇹👨🏻‍💻</h1>
   <strong>Um plataforma para hackers que gostam de bitoque.</strong>
 </div>
