@@ -1,6 +1,6 @@
 <div align="center">
   <br>
-  <a href="devtuga.duarteocarmo.com"><img
+  <a href="https://devtuga.herokuapp.com"><img
     alt="DEV"
     src="app/static/Banner.png"
     width=100px
